@@ -22,7 +22,6 @@ node_modules/
 creds.js
 
 # Private Files
-*.json
 *.csv
 *.csv.gz
 *.tsv
@@ -145,6 +144,7 @@ celerybeat.pid
 .venv
 env/
 venv/
+**/venv/
 ENV/
 env.bak/
 venv.bak/
@@ -172,7 +172,3 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
-
-#custom
-grpc/
-grpc-repo/
