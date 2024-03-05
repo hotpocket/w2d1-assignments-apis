@@ -7,6 +7,4 @@ const notABook = {
 
 console.log(JSON.stringify(notABook));
 
-obj = new Object();
-
-// step 3) --  profit
+//now, profit
