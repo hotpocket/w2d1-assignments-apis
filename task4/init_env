@@ -1,0 +1,18 @@
+echo "Creating a virtual environment"
+python3 -m venv venv
+
+echo "Activating the virtual environment"
+. venv/bin/activate
+
+echo "Installing the requirements"
+pip3 install -r requirements.txt
+
+echo "Compiling the proto file / generating the python code"
+./gen_proto.sh
+
+echo "Running the tests"
+./run_tests.sh
+
+echo "Deactivating the virtual environment"
+deactivate
+

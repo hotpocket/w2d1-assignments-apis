@@ -1,21 +1,14 @@
-import logging
-
 import grpc
-import server_pb2
-import server_pb2_grpc
-
+import echo_pb2
+import echo_pb2_grpc
 
 def run():
-    # NOTE(gRPC Python Team): .close() is possible on a channel and should be
-    # used in circumstances in which the with statement does not fit the needs
-    # of the code.
-    print("Will try to greet world ...")
-    with grpc.insecure_channel("localhost:50051") as channel:
-        stub = helloworld_pb2_grpc.GreeterStub(channel)
-        response = stub.SayHello(helloworld_pb2.HelloRequest(name="you"))
-    print("Greeter client received: " + response.message)
+  message="hello"
+  print(f'Client: Sending "{message}" to server.')
+  with grpc.insecure_channel('localhost:50051') as channel:
+    stub = echo_pb2_grpc.EchoStub(channel)
+    response = stub.EchoMessage(echo_pb2.EchoRequest(message=message))
+    print(f'Client: received "{response.message}" from server.')
 
-
-if __name__ == "__main__":
-    logging.basicConfig()
-    run()
+if __name__ == '__main__':
+  run()
